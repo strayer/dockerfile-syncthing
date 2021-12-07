@@ -1,6 +1,6 @@
 FROM alpine:latest AS download
 
-ARG SYNCTHING_VERSION=1.12.0
+ARG SYNCTHING_VERSION=1.18.5
 ARG SYNCTHING_TGZ=https://github.com/syncthing/syncthing/releases/download/v${SYNCTHING_VERSION}/syncthing-linux-amd64-v${SYNCTHING_VERSION}.tar.gz
 ARG SYNCTHING_SHA=https://github.com/syncthing/syncthing/releases/download/v${SYNCTHING_VERSION}/sha256sum.txt.asc
 
