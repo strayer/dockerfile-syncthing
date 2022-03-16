@@ -1,6 +1,7 @@
-FROM alpine:latest AS download
+FROM alpine:3.15 AS download
 
-ARG SYNCTHING_VERSION=1.18.5
+# renovate: datasource=github-releases depName=syncthing/syncthing
+ARG SYNCTHING_VERSION=1.18.6
 ARG SYNCTHING_TGZ=https://github.com/syncthing/syncthing/releases/download/v${SYNCTHING_VERSION}/syncthing-linux-amd64-v${SYNCTHING_VERSION}.tar.gz
 ARG SYNCTHING_SHA=https://github.com/syncthing/syncthing/releases/download/v${SYNCTHING_VERSION}/sha256sum.txt.asc
 
@@ -16,7 +17,7 @@ RUN curl -LO $SYNCTHING_TGZ && \
     sha256sum --ignore-missing -c sha256sum.txt.asc && \
     tar xf *.tar.gz --strip 1
 
-FROM alpine:latest
+FROM alpine:3.15
 
 EXPOSE 8384 22050 21027/udp
 
