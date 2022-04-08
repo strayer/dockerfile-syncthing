@@ -23,7 +23,7 @@ jobs:
           AMOUNT_OF_UPGRADES=$(apk list -u | wc -l)
           echo "Amount of upgrades available: ${AMOUNT_OF_UPGRADES}"
           echo "::set-output name=amount_of_upgrades::$AMOUNT_OF_UPGRADES"
-        shell: bash
+        shell: sh
   call_build_image_workflow:
     name: "Rebuild"
     needs: check_os_upgrades
