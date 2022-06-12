@@ -19,6 +19,8 @@ RUN curl -LO $SYNCTHING_TGZ && \
 
 FROM alpine:3.16
 
+RUN apk upgrade --no-cache
+
 EXPOSE 8384 22050 21027/udp
 
 COPY --from=download /tmp/syncthing /usr/local/bin/syncthing
