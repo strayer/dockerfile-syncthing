@@ -1,7 +1,7 @@
 FROM alpine:3.16 AS download
 
 # renovate: datasource=github-releases depName=syncthing/syncthing extractVersion=^v(?<version>.*)$
-ARG SYNCTHING_VERSION=1.20.4
+ARG SYNCTHING_VERSION=1.21.0
 ARG SYNCTHING_TGZ=https://github.com/syncthing/syncthing/releases/download/v${SYNCTHING_VERSION}/syncthing-linux-amd64-v${SYNCTHING_VERSION}.tar.gz
 ARG SYNCTHING_SHA=https://github.com/syncthing/syncthing/releases/download/v${SYNCTHING_VERSION}/sha256sum.txt.asc
 
