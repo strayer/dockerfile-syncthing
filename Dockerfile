@@ -7,15 +7,15 @@ ARG SYNCTHING_SHA=https://github.com/syncthing/syncthing/releases/download/v${SY
 
 WORKDIR /tmp
 
-RUN apk add --no-cache curl gnupg gnupg-keyboxd coreutils
+RUN apk add --no-cache curl gnupg gnupg-keyboxd coreutils tar
 
 RUN gpg --keyserver hkp://keyserver.ubuntu.com --recv-keys D26E6ED000654A3E
 
-RUN curl -LO $SYNCTHING_TGZ && \
-    curl -LO $SYNCTHING_SHA && \
+RUN curl -LO "$SYNCTHING_TGZ" && \
+    curl -LO "$SYNCTHING_SHA" && \
     gpg --verify sha256sum.txt.asc && \
     sha256sum --ignore-missing -c sha256sum.txt.asc && \
-    tar xf *.tar.gz --strip 1
+    tar xf ./*.tar.gz --strip 1
 
 FROM alpine:3.18
 
