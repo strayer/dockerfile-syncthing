@@ -7,7 +7,7 @@ ARG SYNCTHING_SHA=https://github.com/syncthing/syncthing/releases/download/v${SY
 
 WORKDIR /tmp
 
-RUN apk add --no-cache curl gnupg coreutils
+RUN apk add --no-cache curl gnupg gnupg-keyboxd coreutils
 
 RUN gpg --keyserver hkp://keyserver.ubuntu.com --recv-keys D26E6ED000654A3E
 
