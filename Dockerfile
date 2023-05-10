@@ -1,4 +1,4 @@
-FROM alpine:3.17 AS download
+FROM alpine:3.18 AS download
 
 # renovate: datasource=github-releases depName=syncthing/syncthing extractVersion=^v(?<version>.*)$
 ARG SYNCTHING_VERSION=1.23.4
@@ -17,7 +17,7 @@ RUN curl -LO $SYNCTHING_TGZ && \
     sha256sum --ignore-missing -c sha256sum.txt.asc && \
     tar xf *.tar.gz --strip 1
 
-FROM alpine:3.17
+FROM alpine:3.18
 
 RUN apk upgrade --no-cache
 
