@@ -21,7 +21,7 @@ RUN gpg --import /tmp/release-key.txt
 RUN curl -LO "$SYNCTHING_TGZ" && \
   curl -LO "$SYNCTHING_SHA" && \
   gpg --verify sha256sum.txt.asc 2>&1 | grep 'Good signature from "Syncthing Release Management <release@syncthing.net>"' && \
-  sha256sum --ignore-missing -c sha256sum.txt.asc && \
+  sha256sum --ignore-missing -c sha256sum.txt.asc | grep "syncthing-linux-amd64-v${SYNCTHING_VERSION}.tar.gz: OK" && \
   tar xf ./*.tar.gz --strip 1
 
 FROM alpine:3.22
